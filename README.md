@@ -1,5 +1,5 @@
 # NEM-tools
-- https://marc0o-.github.io/nem-tools
+- https://marc0olo.github.io/nem-tools
 
 ## provided tools
 - account information
