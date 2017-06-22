@@ -25,7 +25,7 @@ class Navigation extends Component {
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="/">NEM-tools</a>
+                        <a href="#">NEM-tools</a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>

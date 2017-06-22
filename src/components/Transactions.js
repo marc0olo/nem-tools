@@ -9,7 +9,7 @@ class Transactions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            endpoint: null,
+            endpoint: nem.model.objects.create("endpoint")("https://" + san.nem.ninja, 7891), // https://nis.wnsl.biz (spizzerb)
             address: '',
             formErrors: {address: ''},
             harvestLoading: false,
@@ -20,6 +20,7 @@ class Transactions extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.validateField = this.validateField.bind(this);
         this.loadTransactions = this.loadTransactions.bind(this);
+        /*
         nem.com.requests.supernodes.all().then((res) => {
             this.setState({
                 endpoint: nem.model.objects.create("endpoint")("http://" + res.nodes[0].ip, nem.model.nodes.defaultPort)
@@ -27,6 +28,7 @@ class Transactions extends Component {
         }).catch(error => {
             console.error(error);
         });
+        */
     }
 
     handleInputChange(event) {

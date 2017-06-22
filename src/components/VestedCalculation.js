@@ -13,7 +13,7 @@ class VestedCalculation extends Component {
             vestedBalance: undefined,
             targetVestedBalance: 10000,
             supernodes: [],
-            endpoint: null,
+            endpoint: nem.model.objects.create("endpoint")("https://" + san.nem.ninja, 7891), // https://nis.wnsl.biz (spizzerb)
             isLoadingData: false,
             formErrors: {address: '', xemBalance: '', vestedBalance: '', targetVestedBalance: ''},
             formValid: false,
@@ -24,6 +24,7 @@ class VestedCalculation extends Component {
         this.loadData = this.loadData.bind(this);
         this.closeResult = this.closeResult.bind(this);
         this.validateField = this.validateField.bind(this);
+        /*
         nem.com.requests.supernodes.all().then((res) => {
             this.setState({
                 supernodes: res.nodes,
@@ -34,6 +35,7 @@ class VestedCalculation extends Component {
         }).catch(error => {
             console.error(error);
         });
+        */
     }
 
     isNumber (o) {
