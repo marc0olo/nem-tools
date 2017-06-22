@@ -9,7 +9,7 @@ class Transactions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            endpoint: nem.model.objects.create("endpoint")("https://" + san.nem.ninja, 7891), // https://nis.wnsl.biz (spizzerb)
+            endpoint: nem.model.objects.create("endpoint")("https://san.nem.ninja", 7891), // https://nis.wnsl.biz (spizzerb)
             address: '',
             formErrors: {address: ''},
             harvestLoading: false,

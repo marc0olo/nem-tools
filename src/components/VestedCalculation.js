@@ -13,7 +13,7 @@ class VestedCalculation extends Component {
             vestedBalance: undefined,
             targetVestedBalance: 10000,
             supernodes: [],
-            endpoint: nem.model.objects.create("endpoint")("https://" + san.nem.ninja, 7891), // https://nis.wnsl.biz (spizzerb)
+            endpoint: nem.model.objects.create("endpoint")("https://https://san.nem.ninja", 7891), // https://nis.wnsl.biz (spizzerb)
             isLoadingData: false,
             formErrors: {address: '', xemBalance: '', vestedBalance: '', targetVestedBalance: ''},
             formValid: false,
