@@ -17,3 +17,6 @@
 
 ## planned
 - paperwallet-generator
+
+## feel free to give me a few XEM :-)
+- NAAEWH-QWSAU3-5EFTMK-DU3UPT-H35WLD-G3JKLZ-3MYB
