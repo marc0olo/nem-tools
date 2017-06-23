@@ -154,12 +154,13 @@ class Transactions extends Component {
                 <h3>View and export your transactions to csv</h3>
                 <b>Current limitations (will be added in future)</b>
                 <ul>
-                    <li>Mosaics-Transfers are currently not displayed</li>
+                    <li>mosaics-transfers are not displayed</li>
                     <li>rate in $ and € is missing</li>
                     <ul>
                         <li>here I hope that cryptocompare will change its API so that one can get the total price-history of a specific currency</li>
                         <li>at this time we would have to run an API call for each timestamp</li>
                     </ul>
+                    <li>only the last 25 transactions will be displayed (see forum discussion)</li>
                 </ul>
                 <FormGroup controlId="address" className={this.state.formErrors['address'].length > 0 ? 'has-error' : ''}>
                     <ControlLabel>Public Address</ControlLabel>

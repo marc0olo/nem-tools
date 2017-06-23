@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Redirect } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import AccountInfo from './components/AccountInfo'
 import BuyXEM from './components/BuyXEM'
@@ -14,10 +14,10 @@ import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         <div>
             <Navigation />
-            <Redirect from="/" to="/transactions" />
+            <Route exact path="/" render={() => (<Redirect to="/transactions"/>)} />
             <Route path="/transactions" component={Transactions} />
             <Route path="/account" component={AccountInfo} />
             <Route path="/calculator" component={VestedCalculation} />
@@ -27,5 +27,5 @@ ReactDOM.render(
             <Route path="/supplychain" component={SupplyChain} />
             <Route path="/donate" component={Donation} />
         </div>
-    </BrowserRouter>, document.getElementById("root"));
+    </HashRouter>, document.getElementById("root"));
 registerServiceWorker();

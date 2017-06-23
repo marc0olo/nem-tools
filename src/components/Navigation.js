@@ -20,6 +20,11 @@ class Navigation extends Component {
         });
     }
 
+    // workaround because of https://github.com/react-bootstrap/react-bootstrap/issues/2365
+    openExternalURL(someURL) {
+        window.open(someURL);
+    }
+
     render() {
         return (
             <Navbar inverse collapseOnSelect>
@@ -54,7 +59,8 @@ class Navigation extends Component {
                         </LinkContainer>
                     </Nav>
                     <Nav pullRight>
-                        <NavItem onClick={() => this.toggleDonationModal()}>Donate</NavItem>
+                        <NavItem onClick={() => this.openExternalURL("https://forum.nem.io/t/new-project-nem-tools/5648")}>Forum discussion</NavItem>
+                        <NavItem onClick={() => this.toggleDonationModal()}>Donate</NavItem>1
                         <Donation show={this.state.showDonation} onHide={this.toggleDonationModal} />
                     </Nav>
                 </Navbar.Collapse>
