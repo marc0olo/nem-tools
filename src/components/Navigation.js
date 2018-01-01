@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Navbar, NavItem, Nav } from 'react-bootstrap'
+import { NavDropdown, Navbar, NavItem, Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import Donation from './Donation'
 
@@ -36,14 +36,19 @@ class Navigation extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
+                        <NavDropdown eventKey={0} title="Harvesting" id="basic-nav-dropdown">
+                            <LinkContainer to="/harvesting">
+                            <NavItem eventKey={0.1}>Automated restart of delegated harvesting</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to="/calculator">
+                                <NavItem eventKey={0.2}>Vested XEM calculator</NavItem>
+                            </LinkContainer>
+                        </NavDropdown>
                         <LinkContainer to="/transactions">
-                            <NavItem eventKey={0}>Transactions</NavItem>
+                            <NavItem eventKey={1}>Transactions</NavItem>
                         </LinkContainer>
                         <LinkContainer to="/account">
-                            <NavItem eventKey={1}>Account</NavItem>
-                        </LinkContainer>
-                        <LinkContainer to="/calculator">
-                            <NavItem eventKey={2}>Vested XEM Calculator</NavItem>
+                            <NavItem eventKey={2}>Account</NavItem>
                         </LinkContainer>
                         <LinkContainer to="/supernodes">
                             <NavItem eventKey={3}>Supernodes</NavItem>
@@ -51,11 +56,16 @@ class Navigation extends Component {
                         <LinkContainer to="/buy">
                             <NavItem eventKey={4}>Buy XEM</NavItem>
                         </LinkContainer>
+                        <NavDropdown eventKey={5} title="Work in progress" id="basic-nav-dropdown">
+                            <LinkContainer to="/paperwallet">
+                            <NavItem eventKey={5.1}>Paperwallet</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to="/supplychain">
+                                <NavItem eventKey={5.2}>SupplyChain (postponed)</NavItem>
+                            </LinkContainer>
+                        </NavDropdown>
                         <LinkContainer to="/links">
-                            <NavItem eventKey={5}>Link Collection</NavItem>
-                        </LinkContainer>
-                        <LinkContainer to="/supplychain">
-                            <NavItem eventKey={6}>SupplyChain *WIP*</NavItem>
+                            <NavItem eventKey={6}>Link Collection</NavItem>
                         </LinkContainer>
                     </Nav>
                     <Nav pullRight>

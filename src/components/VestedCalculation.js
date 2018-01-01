@@ -11,9 +11,9 @@ class VestedCalculation extends Component {
             address: undefined,
             xemBalance: undefined,
             vestedBalance: undefined,
-            targetVestedBalance: 10000,
+            targetVestedBalance: undefined,
             supernodes: [],
-            endpoint: nem.model.objects.create("endpoint")("https://san.nem.ninja", 7891), // https://nis.wnsl.biz (spizzerb)
+            endpoint: nem.model.objects.create("endpoint")("http://hugealice.nem.ninja", 7890), // https://nis.wnsl.biz (spizzerb)
             isLoadingData: false,
             formErrors: {address: '', xemBalance: '', vestedBalance: '', targetVestedBalance: ''},
             formValid: false,
@@ -230,7 +230,6 @@ class VestedCalculation extends Component {
             }, this.validateField('xemBalance',balance),
                 this.validateField('vestedBalance',vestedBalance)
             );
-            this.validateField('targetVestedBalance',this.state.targetVestedBalance);
         }).catch(error => {
             console.error(error);
             alert('error while loading data');
@@ -259,12 +258,10 @@ class VestedCalculation extends Component {
                         <li>you will <b>only</b> be able to activate harvesting if your balance is > 10000 XEM</li>
                         <li>the less XEM are in your balance, the longer it will take to get your balance vested</li>
                     </ul>
-                    With this tool you can easily calculate how much time it will take to get an amount of 10000 XEM <b>vested</b>
-                    <ul>
-                        <li>of course the targeted vested amount can be changed!</li>
-                    </ul>
+                    With this tool you can easily calculate how much time it will take to get a specific amount of XEM <b>vested</b>
+                    <br/><br/>
                     <b>Note:</b> You can either load your current data by providing your address or enter the values manually
-                    <br/><br />
+                    <br/><br/>
                 </div>
                 <div id="vestedForm">
                     <form>
@@ -316,7 +313,7 @@ class VestedCalculation extends Component {
                             </Modal.Header>
                             <Modal.Body>
                                 <div id="chart">
-                                    <p>You will reach your target vested balance in <b>{this.state.daysToReachTarget} days</b></p>
+                                    <p>You will reach your target vested balance of {this.state.targetVestedBalance} in <b>{this.state.daysToReachTarget} days</b></p>
                                     <AreaChart width={500} height={300} data={this.state.chartData}
                                                 margin={{top: 0, right: 0, left: 0, bottom: 0}}>
                                         <XAxis dataKey="day"/>

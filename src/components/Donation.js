@@ -14,7 +14,7 @@ class Donation extends Component {
                         <img src={qrCode} alt=""/>
                     </div>
                     <div className="address">
-                        NAAEWH-QWSAU3-5EFTMK-DU3UPT-H35WLD-G3JKLZ-3MYB
+                        NBEZ5S43KR7KXPPLW26TK4JPKC6U2GFM6AI6XF6U
                     </div>
                 </Modal.Body>
                 <Modal.Footer>

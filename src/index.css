@@ -5,12 +5,9 @@ body {
   font-size: 13px;
 }
 
-a, a:focus, a:hover {
-  color: #3c3c3c;
-}
-
 .account,
 .calculator,
+.harvesting,
 .supernodes,
 .transactions,
 .linkCollection {
@@ -44,6 +41,7 @@ a, a:focus, a:hover {
 
 .qrCode img {
   width: 300px;
+  margin-bottom: 10px;
 }
 
 .pagination>.active>a,

@@ -14,6 +14,7 @@ class LinkCollection extends Component {
                     <ul>
                         <li><a href="https://blog.nem.io/the-beginners-guide-to-nem/" target="_blank" rel="noopener noreferrer">Intro Guide for Beginners</a></li>
                         <li><a href="https://blog.nem.io/nanowallet-tutorial/" target="_blank" rel="noopener noreferrer">How to use NanoWallet</a></li>
+                        <li><a href="https://blog.nem.io/how-to-activate-start-delegated-harvesting-in-nanowallet/" target="_blank" rel="noopener noreferrer">How to activate & start delegated harvesting in NanoWallet</a></li>
                     </ul>
                 </li>
                 <li><a href="http://chain.nem.ninja/" target="_blank" rel="noopener noreferrer">Nembex (Blockexplorer)</a></li>
@@ -28,16 +29,18 @@ class LinkCollection extends Component {
                 <li><a href="https://www.facebook.com/ourNEM/" target="_blank" rel="noopener noreferrer">NEM on Facebook</a></li>
                 <li><a href="https://t.me/nemred" target="_blank" rel="noopener noreferrer">NEM on Telegram</a></li>
                 <h3>For Developers</h3>
+                <li><a href="https://nem.io/developers/" target="_blank" rel="noopener noreferrer">NEM Developers</a></li>
+                <li><a href="https://nem.io/developers/developer-bounties/" target="_blank" rel="noopener noreferrer">NEM Developer Bounties</a></li>
+                <li><a href="https://nemlibrary.com/" target="_blank" rel="noopener noreferrer">NEM Library (written in TypeScript)</a></li>
+                <li><a href="https://github.com/QuantumMechanics/NEM-sdk" target="_blank" rel="noopener noreferrer">NEM-sdk (Javascript)</a></li>
+                <li><a href="https://github.com/NemProject" target="_blank" rel="noopener noreferrer">NEM on Github</a></li>
+                <li><a href="https://www.nem.io/NEM_techRef.pdf" target="_blank" rel="noopener noreferrer">Technical Reference</a></li>
                 <li><a href="https://www.nem.io/ApostilleWhitePaper.pdf" target="_blank" rel="noopener noreferrer">Apostille Whitepaper (Current NEM-Release)</a></li>
                 <li><a href="https://nem.io/catapultwhitepaper.pdf" target="_blank" rel="noopener noreferrer">Catapult Whitepaper (Future NEM-Release)</a></li>
-                <li><a href="https://www.nem.io/NEM_techRef.pdf" target="_blank" rel="noopener noreferrer">Technical Reference</a></li>
-                <li><a href="https://github.com/NemProject" target="_blank" rel="noopener noreferrer">Quellcode</a></li>
                 <li><a href="http://bob.nem.ninja/docs/" target="_blank" rel="noopener noreferrer">NIS API's</a></li>
                 <li><a href="https://www.nem.io/ncc/index.html" target="_blank" rel="noopener noreferrer">NCC API's</a></li>
-                <li><a href="https://rb2nem.github.io/nem-dev-guide/" target="_blank" rel="noopener noreferrer">RB2's Developer Guide</a></li>
-                <li><a href="https://github.com/rb2nem/nem-docker" target="_blank" rel="noopener noreferrer">RB2's NEM Docker</a></li>
-                <li><a href="https://github.com/QuantumMechanics/NEM-sdk" target="_blank" rel="noopener noreferrer">NEM-sdk</a></li>
-                <li><a href="https://github.com/NemProject/NanoWallet" target="_blank" rel="noopener noreferrer">NanoWallet</a></li>
+                <h3>Marketing</h3>
+                <li><a href="https://nem.io/community/marketing-bounties/" target="_blank" rel="noopener noreferrer">Marketing Bounties</a></li>
             </div>
         );
     }
