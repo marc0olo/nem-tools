@@ -140,14 +140,19 @@ class Harvesting extends Component {
                     <b>Solution</b>
                     <ul>
                         <li>we provide a service that <b>automatically</b> restarts delegated harvesting for you!</li>
-                        <li>a scheduled task runs every 5 minutes, first determines free slots of all supernodes and then checks whether delegated harvesting for your account is still active</li>
-                        <li>you will get notified via mail when delegated harvesting was restartet including the information about the host it is running on</li>
+                        <li>a scheduled task runs <b>every 5 minutes</b> and checks whether delegated harvesting for your account is still active</li>
+                        <li>you will get notified via mail when delegated harvesting was restarted including the information about the host it is running on</li>
                     </ul>
                     <b>What's needed?</b>
                     <ul>
-                        <li><a href="https://medium.com/@walz.marco/nem-tools-automated-restart-of-delegated-harvesting-aa00708dfabe" target="_blank" rel="noopener noreferrer"><b>blog-entry</b></a> (detailed explanation how the service works and what you have to do)</li>
+                        <li><a href="https://steemit.com/nem/@marc0o/nem-tools-automated-restart-of-delegated-harvesting" target="_blank" rel="noopener noreferrer"><b>blog-entry</b></a></li>
                         <ul>
+                            <li>detailed explanation how the service works and what you have to do</li>
                             <li>it's recommended to read this blog-entry before you start using this service</li>
+                            <li>please <b>upvote</b> the blog-entry if you like this service</li>
+                            <ul>
+                                <li>it is hosted on <b>Steem</b> ;-)</li>
+                            </ul>
                         </ul>
                         <li>first of all you need to have delegated harvesting <b>activated</b></li>
                         <ul>
