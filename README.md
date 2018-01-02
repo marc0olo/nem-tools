@@ -4,7 +4,7 @@
 
 ## provided tools
 - automated restart of delegated harvesting
-  - [read more](https://steemit.com/nem/@marc0o/nem-tools-automated-restart-of-delegated-harvesting) and __upvote__ if you like it ;-)
+  - [read more](https://steemit.com/nem/@marc0o/nem-tools-automated-restart-of-delegated-harvesting) on __STEEM__ and __upvote__ if you like it ;-)
 - calculator for vested XEM balance
 - transaction overview (incl. harvested blocks and csv-export)
 - account information
