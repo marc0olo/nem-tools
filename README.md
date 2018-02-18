@@ -56,7 +56,7 @@ Dev dependencies
 `npm install -g angular-cli-ghpages`
 
 Build the application
-`ng build --prod --aot --base-href "https://github.com/marc0olo/nem-tools/"`
+`ng build --prod --aot --base-href "http://nem-tools.com"`
 
 Upload to github pages
 `ngh`
