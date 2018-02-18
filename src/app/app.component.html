@@ -1,0 +1,99 @@
+<header>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper grey darken-3">
+          <a href="#!" class="brand-logo center"><i style="padding-right: 10px;"><img style="margin: 0;position: absolute;top: 50%;transform: translate(-50%, -50%);" height="50" src="assets/img/nem_logo_WEB.png"></i>NEM-tools.com</a>
+          <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+            <!--
+              <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+              <li><a routerLink="/transactions" routerLinkActive="active">Transactions</a></li>
+              <li><a routerLink="/supernodes" routerLinkActive="active">Supernodes</a></li>
+            -->
+              <li><a routerLink="/harvesting" routerLinkActive="active">Harvesting</a></li>
+          </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Move the sidenav outside of .navbar-fixed -->
+  <ul class="side-nav" id="mobile-navigation">
+      <!--
+      <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+      <li><a routerLink="/transactions" routerLinkActive="active">Transactions</a></li>
+      <li><a routerLink="/supernodes" routerLinkActive="active">Supernodes</a></li>
+      -->
+      <li><a routerLink="/harvesting" routerLinkActive="active">Harvesting</a></li>
+  </ul>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="page-footer grey darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text"><i class="material-icons">card_giftcard</i>Donation</h5>
+        <p class="grey-text text-lighten-4">XEM (or other mosaics :-))</p>
+        <ul class="browser-default">
+          <li>NBEZ5S43KR7KXPPLW26TK4JPKC6U2GFM6AI6XF6U</li>
+        </ul>
+        <p class="grey-text text-lighten-4">ETH (or any ERC20)</p>
+        <ul class="browser-default">
+            <li>0x7Ab1EF778d9fA0716E5F57f68B47529351D5eBaE</li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">References</h5>
+        <ul>
+          <li><a class="white-text" href="https://nem.io/" target="_blank">
+            <i class="material-icons tiny">link</i>
+            NEM Homepage</a></li>
+          <li><a class="white-text" href="https://blog.nem.io/" target="_blank">
+            <i class="material-icons tiny">link</i>
+            NEM Blog</a></li>
+          <li><a class="white-text" href="https://nemflash.io/" target="_blank">
+            <i class="material-icons tiny">link</i>
+            NEM News</a></li>
+          <li><a class="white-text" href="https://docs.nem.io/en" target="_blank">
+            <i class="material-icons tiny">link</i>
+            NEM Docs</a></li>
+          <li><a class="white-text" href="https://nem.io/developers/" target="_blank">
+            <i class="material-icons tiny">link</i>
+            NEM Developers</a></li>
+          <li><a class="white-text" href="https://nemlibrary.com/" target="_blank">
+            <i class="material-icons tiny">link</i>
+            NEM Library</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Discussion</h5>
+        <ul>
+          <li><a class="white-text" href="https://forum.nem.io/t/nem-tools-com-automated-delegated-harvesting-export-of-transactions-and-more" target="_blank">
+            <i class="material-icons tiny">forum</i>
+            Forum</a></li>
+          <li><a class="white-text" href="https://twitter.com/marc0olo" target="_blank">
+            <i class="material-icons tiny">chat</i>
+            marc0olo (Twitter)
+          </a></li>
+          <li><a class="white-text" href="https://t.me/nemred" target="_blank">
+            <i class="material-icons tiny">chat</i>
+            NEM::Red (Telegram)
+          </a></li>
+          <li><a class="white-text" href="https://t.me/nemprojects" target="_blank">
+            <i class="material-icons tiny">chat</i>
+            NEM::Projects (Telegram)
+          </a></li>
+          <li><a class="white-text" href="https://t.me/nemhelpdesk" target="_blank">
+            <i class="material-icons tiny">chat</i>
+            NEM::Helpdesk (Telegram)
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      2017 <a href="https://nem-tools.com" style="color: white"> nem-tools.com </a> made with ❤️ by marc0olo
+    </div>
+  </div>
+</footer>
