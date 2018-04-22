@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/marc0olo/nem-tools/issues"
   },
-  "homepage": "http://nem-tools.com",
+  "homepage": "https://nem-tools.com",
   "dependencies": {
     "@angular/animations": "5.2.5",
     "@angular/cdk": "5.2.1",
