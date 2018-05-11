@@ -1,8 +1,10 @@
-import { Account } from 'nem-library';
+import { Account, AccountInfoWithMetaData, Address } from 'nem-library';
+import { accountHttp } from '@app/constants';
+import { FormGroup } from '@angular/forms';
 
 export class ValidationService {
 
-    static emailValidator(control) {
+    static email(control) {
         if (control.value == null) {
             return null;
         }
@@ -10,11 +12,11 @@ export class ValidationService {
         else if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
             return null;
         } else {
-            return {valid: false};
+            return {email: true};
         }
     }
 
-    static privateKeyValidator(control) {
+    static privateKey(control) {
         if (control.value == null) {
             return null;
         } else {
@@ -23,7 +25,7 @@ export class ValidationService {
                 account = Account.createWithPrivateKey(control.value);
             } catch(err) {
                 console.error(err)
-                return {valid: false};
+                return {privateKey: true};
             }
             if(account.hasPublicKey()) {
                 console.debug(account.publicKey);
@@ -31,6 +33,36 @@ export class ValidationService {
                 return null;
             }
         }
-        return {valid: false};
+        return {privateKey: true};
+    }
+
+    static numberValidator(control) {
+        if (control.value === null) {
+            return null;
+        }
+        if (! isNaN (control.value-0) && control.value !== null && control.value !== "" && control.value !== false) {
+            return null;
+        }
+        return {noNumber: true};
+    }
+
+    static calculatorValidator(group: FormGroup) {
+        let xemBalance = group.get('xemBalance').value;
+        let vestedBalance = group.get('vestedBalance').value;
+        let targetBalance = group.get('targetBalance').value;
+        // console.log(xemBalance + " - " + vestedBalance + " - " + targetBalance);
+        if (xemBalance !== null && Number(xemBalance) <= 10000 ) {
+            return { xemBalanceTooLow: true};
+        }
+        if (vestedBalance !== null && Number(vestedBalance) >= Number(xemBalance)) {
+            return { vestedBalanceTooHigh: true};
+        }
+        if (targetBalance !== null && Number(targetBalance) <= Number(vestedBalance)) {
+            return { targetBalanceTooLow: true};
+        }
+        if (targetBalance !== null && Number(targetBalance) >= Number(xemBalance)) {
+            return { targetGreaterThanBalance: true};
+        }
+        return null;
     }
 }

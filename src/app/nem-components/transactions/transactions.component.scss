@@ -1,0 +1,91 @@
+.mat-tab-labels{
+    justify-content: center; /* align items in Main Axis */
+}
+
+.transactionsTable {
+
+    .mat-row:hover{
+        background: #212121;
+        cursor: pointer;
+    }
+
+    .mat-row, .mat-header-row {
+        .transfer-out {
+            background: #e67e22;
+        }
+        .transfer-in {
+            background: #5cb85c;
+        }
+        .mat-cell, .mat-header-cell {
+            flex: none;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+        .mat-column-hash {
+            width: 250px;
+        }
+        .mat-column-block {
+            width: 80px;
+        }
+        .mat-column-date {
+            width: 180px;
+        }
+        .mat-column-from {
+            width: 280px;
+        }
+        .mat-column-in_out {
+            width: 100px;
+            border-radius: 4px;
+            text-align: center;
+            padding: 4px 7px;
+            margin-right: 8px;
+        }
+        .mat-column-to {
+            width: 280px;
+        }
+        .mat-column-amount {
+            width: 280px;
+            white-space: pre-line;
+        }
+        .mat-column-fee {
+            width: 120px;
+        }
+        .mat-column-message {
+            width: 300px;
+        }
+    }
+}
+
+.nemToolbar {
+    font-size: 14px;
+}
+
+/**
+.mat-column-hash{
+    flex: 0 0 5%;
+}
+.mat-column-block{
+    flex: 0 0 5%;
+}
+.mat-column-date{
+    flex: 0 0 5%;
+}
+.mat-column-from{
+    flex: 0 0 20%;
+}
+.mat-column-in_out{
+    flex: 0 0 5%;
+}
+.mat-column-to{
+    flex: 0 0 20%;
+}
+.mat-column-amount{
+    flex: 0 0 15%;
+}
+.mat-column-fee{
+    flex: 0 0 10%;
+}
+.mat-column-message{
+    flex: 0 0 15%;
+}
+**/

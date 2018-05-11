@@ -17,16 +17,15 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "anms",
       "styles": [
-        "styles.css",
-        "../node_modules/materialize-css/dist/css/materialize.css"
+        "styles-app-loading.scss",
+        "styles.scss"
       ],
-      "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/hammerjs/hammer.js",
-        "../node_modules/materialize-css/dist/js/materialize.js"
-      ],
+      "stylePreprocessorOptions": {
+        "includePaths": ["./", "./themes"]
+      },
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -41,16 +40,13 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
+      "project": "src/tsconfig.app.json"
     },
     {
-      "project": "src/tsconfig.spec.json",
-      "exclude": "**/node_modules/**"
+      "project": "src/tsconfig.spec.json"
     },
     {
-      "project": "e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
+      "project": "e2e/tsconfig.e2e.json"
     }
   ],
   "test": {
@@ -59,7 +55,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

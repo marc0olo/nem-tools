@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TransactionsComponent } from './transactions/transactions.component';
-import { SupernodesComponent } from './supernodes/supernodes.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HarvestingComponent} from './harvesting/harvesting.component';
+import { SettingsComponent } from './settings';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/harvesting', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'transactions', component: TransactionsComponent },
-  { path: 'supernodes', component: SupernodesComponent},
-  { path: 'harvesting', component: HarvestingComponent}
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    data: {
+      title: 'Settings'
+    }
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // useHash supports github.io demo page, remove in your app
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,34 +1,33 @@
-import {async, TestBed} from '@angular/core/testing';
-import {AppComponent} from './app.component';
-import {Angulartics2Module} from "angulartics2";
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
-import {RouterTestingModule} from "@angular/router/testing";
-import {AccountHttpProvider} from "./providers/AccountHttpProvider";
-import {AccountHttp, BlockchainListener, UnconfirmedTransactionListener} from "nem-library";
-import {UnconfirmedTransactionListenerProvider} from "./providers/UnconfirmedTransactionListenerProvider";
-import {BlockchainListenerProvider} from "./providers/BlockchainListenerProvider";
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SharedModule } from '@app/shared';
+import { CoreModule } from '@app/core';
+
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
-      ],
-      declarations: [
-        AppComponent
-      ],
-      providers: [
-        {provide: BlockchainListener, useFactory: BlockchainListenerProvider},
-        {provide: UnconfirmedTransactionListener, useFactory: UnconfirmedTransactionListenerProvider},
-        {provide: AccountHttp, useFactory: AccountHttpProvider}
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          NoopAnimationsModule,
+          RouterTestingModule,
+          SharedModule,
+          CoreModule
+        ],
+        declarations: [AppComponent]
+      }).compileComponents();
+    })
+  );
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  it(
+    'should create the app',
+    async(() => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      expect(app).toBeTruthy();
+    })
+  );
 });

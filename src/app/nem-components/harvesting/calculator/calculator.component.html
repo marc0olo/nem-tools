@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Introduction</h2>
+            <p>Many people starting research about NEM are asking "what does vested balance mean?" and "how long does it take to get my XEM vested?".</p>
+            <ul>
+                <li>NEM requires a vested balance of <b>minimum 10000 XEM</b> in order to be able to activate (delegated) harvesting</li>
+                <li>your unvested balance will automatically be vested at a rate of 10% each day</li>
+                <li>you will <b>only</b> be able to activate harvesting if your balance is > 10000 XEM</li>
+                <li>the less XEM are in your balance, the longer it will take to get your balance vested</li>
+            </ul>
+            <p>With this tool you can easily calculate how much time it will take to get a specific amount of XEM <b>vested</b></p>
+            <b>Note:</b>current data may be provided by your address. you can also enter the values manually
+        </div>
+        <div class="col">
+            <h2>Calculator</h2>
+            <form class="formContainer" [formGroup]="calculatorForm">
+            <mat-form-field>
+                <input matInput placeholder="XEM balance" formControlName="xemBalance" required>
+                <mat-error *ngIf="calculatorForm.controls.xemBalance.hasError('required')">
+                    XEM balance is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="calculatorForm.controls.xemBalance.hasError('noNumber')">
+                    XEM balance must be a <strong>number</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Vested XEM balance" formControlName="vestedBalance" required>
+                <mat-error *ngIf="calculatorForm.controls.vestedBalance.hasError('required')">
+                    Vested XEM balance is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="calculatorForm.controls.vestedBalance.hasError('noNumber')">
+                    Vested balance must be a <strong>number</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Target vested XEM balance" formControlName="targetBalance" required>
+                <mat-error *ngIf="calculatorForm.controls.targetBalance.hasError('required')">
+                    Target vested XEM balance is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="calculatorForm.controls.targetBalance.hasError('noNumber')">
+                    Target vested balance must be a <strong>number</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-error *ngIf="calculatorForm.hasError('xemBalanceTooLow')">
+                XEM balance must be <strong>greater</strong> than 10000
+            </mat-error>
+            <mat-error *ngIf="calculatorForm.hasError('vestedBalanceTooHigh')">
+                Vested balance must be <strong>less</strong> than XEM balance <br />
+            </mat-error>
+            <mat-error *ngIf="calculatorForm.hasError('targetBalanceTooLow')">
+                Target balance must be <strong>greater</strong> than vested balance
+            </mat-error>
+            <mat-error *ngIf="calculatorForm.hasError('targetGreaterThanBalance')">
+                Target balance must <strong>NOT be greater</strong> than XEM balance
+            </mat-error>
+            <br />
+            <button mat-button (click)="calculate()" [disabled]="!calculatorForm.valid" style="background: grey;">Calculate</button>
+        </form>
+        </div>
+    </div>
+</div>

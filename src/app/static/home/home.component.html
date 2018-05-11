@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row align-items-end">
+      <div class="col-md-6 col-lg-4 card-as-link" [ngClass]="animateOnRouteEnter">
+        <mat-card routerLink="/account">
+          <mat-card-title>Account</mat-card-title>
+          <mat-card-subtitle>
+            <ul>
+              <li>request account data</li>
+              <ul>
+                <li>balance</li>
+                <li>vested balance</li>
+                <li>importance score</li>
+              </ul>
+            </ul>
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+      <div class="col-md-6 col-lg-4 card-as-link" [ngClass]="animateOnRouteEnter">
+        <mat-card routerLink="/transactions">
+          <mat-card-title>Transactions</mat-card-title>
+          <mat-card-subtitle>
+            <ul>
+              <li>list transactions</li>
+              <ul>
+                <li>including mosaics-transfers</li>
+              </ul>
+              <li>list harvesting transactions</li>
+              <li>export transaction data to csv</li>
+            </ul>
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+      <div class="col-md-6 col-lg-4 card-as-link" [ngClass]="animateOnRouteEnter">
+        <mat-card routerLink="/harvesting">
+          <mat-card-title>Harvesting</mat-card-title>
+          <mat-card-subtitle>
+            <ul>
+              <li>register for automated restart of delegated harvesting</li>
+              <li>vested balance calculator</li>
+              <ul>
+                  <li>10000 XEM are needed to harvest</li>
+                </ul>
+            </ul>
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+      <div class="col-md-6 col-lg-4 card-as-link" [ngClass]="animateOnRouteEnter">
+        <mat-card routerLink="/supernodes">
+          <mat-card-title>Supernodes</mat-card-title>
+          <mat-card-subtitle>
+            <ul>
+              <li>list of all supernodes</li>
+              <ul>
+                <li>displays free harvesting slots of each supernode</li>
+              </ul>
+            </ul>
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+      <div class="col-md-6 col-lg-4 card-as-link" [ngClass]="animateOnRouteEnter">
+        <mat-card routerLink="/buy-xem">
+          <mat-card-title>Buy XEM</mat-card-title>
+          <mat-card-subtitle>
+            <ul>
+              <li>changelly-widget</li>
+              <ul>
+                <li>buy XEM with different other altcoins</li>
+              </ul>
+            </ul>
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+      <div class="col-md-6 col-lg-4 card-as-link" [ngClass]="animateOnRouteEnter">
+        <mat-card routerLink="/guestbook">
+          <mat-card-title>Guestbook / Wishing wall</mat-card-title>
+          <mat-card-subtitle>
+            <ul>
+              <li>donate</li>
+              <li>leave a message</li>
+              <li>provide feature requests</li>
+            </ul>
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+    </div>
+  </div>

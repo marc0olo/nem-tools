@@ -1,99 +1,160 @@
-<header>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper grey darken-3">
-          <a href="#!" class="brand-logo center"><i style="padding-right: 10px;"><img style="margin: 0;position: absolute;top: 50%;transform: translate(-50%, -50%);" height="50" src="assets/img/nem_logo_WEB.png"></i>NEM-tools.com</a>
-          <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="left hide-on-med-and-down">
-            <!--
-              <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-              <li><a routerLink="/transactions" routerLinkActive="active">Transactions</a></li>
-              <li><a routerLink="/supernodes" routerLinkActive="active">Supernodes</a></li>
-            -->
-              <li><a routerLink="/harvesting" routerLinkActive="active">Harvesting</a></li>
-          </ul>
-      </div>
-    </nav>
-  </div>
-  <!-- Move the sidenav outside of .navbar-fixed -->
-  <ul class="side-nav" id="mobile-navigation">
-      <!--
-      <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-      <li><a routerLink="/transactions" routerLinkActive="active">Transactions</a></li>
-      <li><a routerLink="/supernodes" routerLinkActive="active">Supernodes</a></li>
-      -->
-      <li><a routerLink="/harvesting" routerLinkActive="active">Harvesting</a></li>
-  </ul>
-</header>
+<mat-sidenav-container>
 
-<router-outlet></router-outlet>
+  <mat-sidenav #sidenav mode="push">
+    <div class="branding"><img [src]="logo"/> <span>NEM-tools</span></div>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of navigationSideMenu" (click)="sidenav.close()"
+         [routerLink]="[item.link]" routerLinkActive="active">
+        {{item.label}}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<footer class="page-footer grey darken-3">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text"><i class="material-icons">card_giftcard</i>Donation</h5>
-        <p class="grey-text text-lighten-4">XEM (or other mosaics :-))</p>
-        <ul class="browser-default">
-          <li>NBEZ5S43KR7KXPPLW26TK4JPKC6U2GFM6AI6XF6U</li>
-        </ul>
-        <p class="grey-text text-lighten-4">ETH (or any ERC20)</p>
-        <ul class="browser-default">
-            <li>0x7Ab1EF778d9fA0716E5F57f68B47529351D5eBaE</li>
-        </ul>
+  <div class="wrapper">
+
+    <div class="toolbar">
+      <mat-toolbar color="primary">
+        <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <span routerLink="" class="branding spacer d-inline d-sm-none text-center"><img
+          [src]="logo"/></span>
+        <span routerLink="" class="branding spacer d-none d-sm-inline d-md-none text-center"><img
+          [src]="logo"/> NEM-tools</span>
+        <span routerLink="" class="branding spacer d-none d-md-inline"><img
+          [src]="logo"/> NEM-tools</span>
+
+        <span class="d-none d-md-inline">
+          <button mat-button class="nav-button" *ngFor="let item of navigation"
+              [routerLink]="[item.link]" routerLinkActive="active">
+            {{item.label}}
+          </button>
+        </span>
+
+        <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
+          <mat-icon>settings</mat-icon>
+        </button>
+
+        <a matTooltip="Project Github Repository"
+           matdTooltipPosition="before"
+           mat-icon-button class="link"
+           href="https://github.com/marc0olo/nem-tools"
+           target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+
+      </mat-toolbar>
+    </div>
+
+    <div class="content"
+         [@routerTransition]="o.isActivated && o.activatedRoute.routeConfig.path">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+
+    <div class="footer">
+      <div class="row">
+        <div class="col-sm-12 links">
+          <a href="https://github.com/marc0olo" target="_blank">
+            <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+            <span>Github</span>
+          </a>
+          <a href="https://twitter.com/marc0olo" target="_blank">
+            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+            <span>Twitter</span>
+          </a>
+          <a href="https://steemit.com/@marc0o"
+             target="_blank">
+            <i class="fa fa-steemit fa-2x" aria-hidden="true"></i>
+            <span>Steemit</span>
+          </a>
+          <a href="https://medium.com/@walz.marco" target="_blank">
+            <i class="fa fa-medium fa-2x" aria-hidden="true"></i>
+            <span>Medium</span>
+          </a>
+        </div>
       </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">References</h5>
-        <ul>
-          <li><a class="white-text" href="https://nem.io/" target="_blank">
-            <i class="material-icons tiny">link</i>
-            NEM Homepage</a></li>
-          <li><a class="white-text" href="https://blog.nem.io/" target="_blank">
-            <i class="material-icons tiny">link</i>
-            NEM Blog</a></li>
-          <li><a class="white-text" href="https://nemflash.io/" target="_blank">
-            <i class="material-icons tiny">link</i>
-            NEM News</a></li>
-          <li><a class="white-text" href="https://docs.nem.io/en" target="_blank">
-            <i class="material-icons tiny">link</i>
-            NEM Docs</a></li>
-          <li><a class="white-text" href="https://nem.io/developers/" target="_blank">
-            <i class="material-icons tiny">link</i>
-            NEM Developers</a></li>
-          <li><a class="white-text" href="https://nemlibrary.com/" target="_blank">
-            <i class="material-icons tiny">link</i>
-            NEM Library</a></li>
-        </ul>
-      </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">Discussion</h5>
-        <ul>
-          <li><a class="white-text" href="https://forum.nem.io/t/nem-tools-com-automated-delegated-harvesting-export-of-transactions-and-more" target="_blank">
-            <i class="material-icons tiny">forum</i>
-            Forum</a></li>
-          <li><a class="white-text" href="https://twitter.com/marc0olo" target="_blank">
-            <i class="material-icons tiny">chat</i>
-            marc0olo (Twitter)
-          </a></li>
-          <li><a class="white-text" href="https://t.me/nemred" target="_blank">
-            <i class="material-icons tiny">chat</i>
-            NEM::Red (Telegram)
-          </a></li>
-          <li><a class="white-text" href="https://t.me/nemprojects" target="_blank">
-            <i class="material-icons tiny">chat</i>
-            NEM::Projects (Telegram)
-          </a></li>
-          <li><a class="white-text" href="https://t.me/nemhelpdesk" target="_blank">
-            <i class="material-icons tiny">chat</i>
-            NEM::Helpdesk (Telegram)
-          </a></li>
-        </ul>
+      <div class="row footer-references">
+          <div class="col l6 s12 footer-column-left">
+            <h3 class="white-text"><i class="material-icons">card_giftcard</i>Donation</h3>
+            <p class="grey-text text-lighten-4">XEM (or other mosaics :-))</p>
+            <ul>
+              <li>
+                <button mat-button ngxClipboard [cbContent]="'NBEZ5S43KR7KXPPLW26TK4JPKC6U2GFM6AI6XF6U'" (cbOnSuccess)="onCopy()">
+                  <mat-icon>content_copy</mat-icon>
+                  NBEZ5S43KR7KXPPLW26TK4JPKC6U2GFM6AI6XF6U
+                </button>
+              </li>
+            </ul>
+            <p class="grey-text text-lighten-4">ETH (or any ERC20)</p>
+            <ul>
+              <li>
+                <button mat-button ngxClipboard [cbContent]="'0x7Ab1EF778d9fA0716E5F57f68B47529351D5eBaE'" (cbOnSuccess)="onCopy()">
+                  <mat-icon>content_copy</mat-icon>
+                  0x7Ab1EF778d9fA0716E5F57f68B47529351D5eBaE
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="col l3 s12 footer-column-standard">
+            <h3 class="white-text">References</h3>
+            <ul>
+              <li><a class="white-text" href="https://nem.io/" target="_blank">
+                <i class="material-icons tiny">link</i>
+                NEM Homepage</a></li>
+              <li><a class="white-text" href="https://blog.nem.io/" target="_blank">
+                <i class="material-icons tiny">link</i>
+                NEM Blog</a></li>
+              <li><a class="white-text" href="https://nemflash.io/" target="_blank">
+                <i class="material-icons tiny">link</i>
+                NEM News</a></li>
+              <li><a class="white-text" href="https://docs.nem.io/en" target="_blank">
+                <i class="material-icons tiny">link</i>
+                NEM Docs</a></li>
+              <li><a class="white-text" href="https://nem.io/developers/" target="_blank">
+                <i class="material-icons tiny">link</i>
+                NEM Developers</a></li>
+              <li><a class="white-text" href="https://nemlibrary.com/" target="_blank">
+                <i class="material-icons tiny">link</i>
+                NEM Library</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12 footer-column-standard">
+            <h3 class="white-text">Discussion</h3>
+            <ul>
+              <li><a class="white-text" href="https://forum.nem.io/t/nem-tools-com-automated-delegated-harvesting-export-of-transactions-and-more" target="_blank">
+                <i class="material-icons tiny">forum</i>
+                Forum</a></li>
+              <li><a class="white-text" href="https://t.me/nemred" target="_blank">
+                <i class="material-icons tiny">chat</i>
+                NEM::Red (Telegram)
+              </a></li>
+              <li><a class="white-text" href="https://t.me/nemprojects" target="_blank">
+                <i class="material-icons tiny">chat</i>
+                NEM::Projects (Telegram)
+              </a></li>
+              <li><a class="white-text" href="https://t.me/nemhelpdesk" target="_blank">
+                <i class="material-icons tiny">chat</i>
+                NEM::Helpdesk (Telegram)
+              </a></li>
+            </ul>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-12 signature">
+          &#169; {{year}} - nem-tools.com made with ❤️ by marc0olo
+          <br class="d-block d-sm-none">
+          <!--
+          <a matTooltip="Show changelog"
+             matTooltipPosition="before"
+             href="https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CHANGELOG.md">
+            <i class="fa fa-rocket"></i> {{version}} <span *ngIf="!isProd">[{{envName}}]</span>
+          </a>
+          -->
+        </div>
       </div>
     </div>
+
   </div>
-  <div class="footer-copyright">
-    <div class="container">
-      2017 <a href="https://nem-tools.com" style="color: white"> nem-tools.com </a> made with ❤️ by marc0olo
-    </div>
-  </div>
-</footer>
+
+</mat-sidenav-container>

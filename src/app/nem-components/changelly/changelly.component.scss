@@ -1,0 +1,18 @@
+@import 'styles-variables';
+
+.buyXem {
+    display: flex;
+    justify-content: center; /* align flex items horizontally (in this case) */
+    align-items: center; /* align flex items vertically (in this case) */
+}
+
+.changelly {
+    height: 468px;
+    overflow-y: hidden;
+    border: none;
+}
+
+#cryptoCompare {
+    margin-left: 20px;
+    width: 600px;
+}

@@ -1,0 +1,58 @@
+<section class="mat-typography">
+  <mat-divider></mat-divider>
+  <mat-toolbar class="nemToolbar">
+    <mat-icon style="margin-right: 10px;">account_balance_wallet</mat-icon>
+    {{ _nemService.isAddressConfigured() ? _nemService.getNemAddress() : 'not available -> go to the settings'}}  
+  </mat-toolbar>
+  <mat-divider></mat-divider>
+  <div class="accountInfoContainer" *ngIf="_nemService.isAddressConfigured() && !loading">
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+      <h3>Account Information</h3>
+      <table class="mat-table">
+        <tr class="mat-row">
+          <td class="mat-cell">NEM-Address:</td>
+          <td class="mat-cell">{{ _nemService.getNemAddress() }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Public Key:</td>
+          <td class="mat-cell">{{ accountInfo.publicAccount.publicKey }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Total Balance:</td>
+          <td class="mat-cell">{{ formatValue(accountInfo.balance.balance) }} nem:xem</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Vested Balance:</td>
+          <td class="mat-cell">{{ formatValue(accountInfo.balance.vestedBalance) }} nem:xem</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Unvested Balance:</td>
+          <td class="mat-cell">{{ formatValue(accountInfo.balance.unvestedBalance) }} nem:xem</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Importance:</td>
+          <td class="mat-cell">{{ formatImportanceScore(accountInfo.importance) }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Harvested Blocks:</td>
+          <td class="mat-cell">{{ accountInfo.harvestedBlocks }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Status:</td>
+          <td class="mat-cell">{{ accountInfo.status }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Remote Status:</td>
+          <td class="mat-cell">{{ accountInfo.remoteStatus }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Cosignatories:</td>
+          <td class="mat-cell" [innerHTML]="formatCosignatories(accountInfo.cosignatories) | safeHtml"></td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Cosignatory of:</td>
+          <td class="mat-cell" [innerHTML]="formatCosignatories(accountInfo.cosignatoryOf) | safeHtml"></td>
+        </tr>
+      </table>
+  </div>
+</section>

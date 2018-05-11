@@ -1,62 +1,52 @@
 # NEM-tools
-- http://nem-tools.com
-- http://marc0olo.github.io/nem-tools
+- https://nem-tools.com
+- https://marc0olo.github.io/nem-tools
+
+# official thread in the NEM forum
+- https://forum.nem.io/t/nem-tools-com-automated-delegated-harvesting-export-of-transactions-and-more
 
 ## provided tools
-- automated restart of delegated harvesting
-  - [read more](https://steemit.com/nem/@marc0o/nem-tools-automated-restart-of-delegated-harvesting)
-- calculator for vested XEM balance
-- transaction overview (incl. harvested blocks and csv-export)
 - account information
+- full transaction history
+  - ImportanceTransferTransactions
+  - TransferTransactions (also those sent via MultiSig)
+  - csv-export
+- full harvesting history
+  - csv-export
+- harvesting
+  - automated restart of delegated harvesting
+    - [read more](https://steemit.com/nem/@marc0o/nem-tools-automated-restart-of-delegated-harvesting)
+  - calculator for vested XEM balance
 - list of all supernodes
   - and show which ones have free slots ;-)
-- buying XEM via changelly
-- collection of useful links
+- buying XEM
+  - widget by changelly
+- guestbook / wishing wall
+  - widget by http://wishing-wall.surge.sh/
+  - https://forum.nem.io/t/wishing-wall-donations-comments-ranked-by-amount-paid/
 
 ## feel free to give me a few XEM or other mosaics :-)
 - NBEZ5S43KR7KXPPLW26TK4JPKC6U2GFM6AI6XF6U
 
-## components used
+## ... you can also leave some ETH or other ERC20s
+- 0x7Ab1EF778d9fA0716E5F57f68B47529351D5eBaE
 
-- [NEMLibrary.com](https://nemlibrary.com):
-- [Angular](https://angular.io/):
-- [Materialize](http://materializecss.com/):
+## built on Angular, ngrx and Angular Material Starter 
+provided by [@tomastrajan](https://twitter.com/tomastrajan) and released under [![license](https://img.shields.io/github/license/tomastrajan/angular-ngrx-material-starter.svg)](https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/LICENSE)
 
-## development server
+## commands for development
+  * `npm start` - starts a dev server and opens browser with running app
+  * `npm run test` - runs lint and tests
+  * `npm run watch` - runs tests in watch mode
+  * `npm run prod` - runs full prod build and serves prod bundle
+  * `npm run prettier` - runs prettier to format whole code base (`.ts` and `.scss`) 
+  * `npm run analyze` - runs full prod build and `webpack-bundle-analyzer` to visualize how much code is shipped (dependencies & application)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-To get help on the Angular Material, checkout the [official docs](https://material.angular.io)
-
-## publish into github pages
-
-Dev dependencies
-
-`npm install -g angular-cli-ghpages`
-
-Build the application
-`ng build --prod --aot --base-href "https://nem-tools.com"`
-
-Upload to github pages
-`ngh`
+## https nodes that could be used for connection-pool
+### currently only using london.nemchina due to pagination issues with connection pool
+- https://shibuya.supernode.me:7891/node/extended-info
+- https://la.nemchina.com:7891/node/extended-info
+- https://public.nemchina.com:7891/node/extended-info
+- https://frankfurt.nemchina.com:7891/node/extended-info
+- https://tokyo.nemchina.com:7891/node/extended-info
+- https://london.nemchina.com:7891/node/extended-info

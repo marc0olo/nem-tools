@@ -1,0 +1,30 @@
+.tabs .tab a{
+    color:#424242;
+}
+.tabs .tab a:hover,.tabs .tab a.active {
+	background-color:lightgrey;
+	color:#424242;
+}
+.tabs .tab.disabled a,.tabs .tab.disabled a:hover {
+	color:rgba(153, 155, 156, 0.7);	
+}
+.tabs .indicator {
+    background-color:grey;
+    color: grey;
+}
+
+.mat-cell {
+    overflow: inherit;
+
+    .active {
+        background: #5cb85c;
+    }
+    .inactive {
+        background: #e67e22;
+    }
+    span {
+        border-radius: 4px;
+        text-align: center;
+        padding: 4px 7px;
+    }
+}

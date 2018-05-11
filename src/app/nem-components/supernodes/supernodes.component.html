@@ -1,0 +1,49 @@
+<section class="mat-typography">
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <mat-table #table [dataSource]="supernodeTableOutput" matSort matSortActive="freeSlots" matSortDirection="desc">
+
+      <ng-container matColumnDef="host">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Host</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-button ngxClipboard [cbContent]="row.host" (cbOnSuccess)="onCopy()">
+            {{ row.host }}
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="alias">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Alias</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.alias }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="active">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+        <mat-cell *matCellDef="let row"><span [class.active]="row.active" [class.inactive]="!row.active">{{ row.active ? "active" : "inactive" }}</span></mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="slotsAvailable">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Available slots</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.slotsAvailable }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="slotsUsed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Used slots</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.slotsUsed }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="freeSlots">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Free slots</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.freeSlots }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="syncDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Last update</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ _nemService.prettyPrintTimestamp(row.syncDate) }}</mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[5, 10]" [showFirstLastButtons]="true">
+    </mat-paginator>
+</section>

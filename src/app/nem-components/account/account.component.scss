@@ -1,0 +1,27 @@
+.accountInfoContainer {
+    padding: 16px;
+}
+
+.nemToolbar {
+    font-size: 14px;
+}
+
+.dialogActions {
+    text-align: center;
+}
+
+.mat-row {
+    display: table-row;
+
+    .mat-cell {
+        padding-left: 16px;
+    }
+}
+
+.cosignatoriesList {
+    margin: 0;
+
+    li {
+        list-style-type: none;
+    }
+}

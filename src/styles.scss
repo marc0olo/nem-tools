@@ -1,0 +1,42 @@
+@import 'styles-variables';
+
+@import '../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/bootstrap/scss/utilities';
+
+@import 'font-awesome-with-steemit/scss/font-awesome';
+
+@import 'styles-reset';
+
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+@import 'default-theme.scss';
+@import 'light-theme.scss';
+@import 'black-theme.scss';
+
+@import 'styles-reset.scss-theme';
+@import 'app/app.component.scss-theme';
+@import 'app/static/home/home.component.scss-theme';
+
+@mixin custom-components-theme($theme) {
+  @include anms-styles-reset-theme($theme);
+  @include anms-app-component-theme($theme);
+  @include anms-home-component-theme($theme);
+}
+
+.default-theme {
+  @include angular-material-theme($anms-theme);
+  @include custom-components-theme($anms-theme);
+}
+
+.light-theme {
+  @include angular-material-theme($anms-light-theme);
+  @include custom-components-theme($anms-light-theme);
+}
+
+.black-theme {
+  @include angular-material-theme($anms-black-theme);
+  @include custom-components-theme($anms-black-theme);
+}

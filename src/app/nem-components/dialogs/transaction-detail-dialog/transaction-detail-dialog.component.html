@@ -1,0 +1,54 @@
+<div class="transactionDetailDialogContainer">
+    <h3 mat-dialog-title>Transaction Information</h3>
+    <table class="mat-table">
+      <tbody>
+        <tr class="mat-row">
+          <td class="mat-cell">TxHash:</td>
+          <td class="mat-cell">{{ data.tx.hash }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Block Height:</td>
+          <td class="mat-cell">{{ data.tx.block }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Tx-Type:</td>
+          <td class="mat-cell">{{ data.tx.type }}</td>
+        </tr>
+        <tr class="mat-row" *ngIf="data.tx.isImportanceTransaction()">
+          <td class="mat-cell">Mode:</td>
+          <td class="mat-cell">{{ data.tx.mode }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Timestamp:</td>
+          <td class="mat-cell">{{ data.tx.timestamp }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Date:</td>
+          <td class="mat-cell">{{ _nemService.getFormattedDate(data.tx.timestamp) }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">From:</td>
+          <td class="mat-cell">{{ data.tx.sender }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">{{ data.tx.isImportanceTransaction() ? "Remote:" : "To:" }}</td>
+          <td class="mat-cell">{{ data.tx.recipient }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Amount (Mosaic):</td>
+          <td class="mat-cell">{{ _nemService.formatXemAndOtherMosaics(data.tx.xem, data.tx.mosaics) }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Fee (Mosaic):</td>
+          <td class="mat-cell">{{ data.tx.fee + " (nem:xem)" }}</td>
+        </tr>
+        <tr class="mat-row">
+          <td class="mat-cell">Message:</td>
+          <td class="mat-cell">{{ data.tx.message }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div mat-dialog-actions>
+      <button mat-button (click)="close()" tabindex="-1" style="margin: auto;background: grey;">Close</button>
+    </div>
+  </div>

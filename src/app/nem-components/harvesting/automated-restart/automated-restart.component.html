@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Why?</h2>
+            <b>Regular headaches</b>
+            <ul class="browser-default">
+                <li>delegated harvesting stops when a node is getting rebooted for some reason</li>
+                <li>you need to manually search for a node with free slots (can be frustrating using NanoWallet)</li>
+                <li>maybe you are on vacation and you cannot afford to restart harvesting</li>
+                <li>you miss the chance to harvest new blocks</li>
+            </ul>
+            <b>Solution</b>
+            <ul class="browser-default">
+                <li>we provide a service that <b>automatically</b> restarts delegated harvesting for you!</li>
+                <li>a scheduled task runs <b>every 5 minutes</b> and checks whether delegated harvesting for your account is still active</li>
+                <li>you will get notified via mail when delegated harvesting was restarted including the information about the host it is running on</li>
+            </ul>
+            <b>What's needed?</b>
+            <ul class="browser-default">
+                <li><a href="https://steemit.com/nem/@marc0o/nem-tools-automated-restart-of-delegated-harvesting" target="_blank" rel="noopener noreferrer"><b>blog-entry</b></a></li>
+                <ul class="browser-default">
+                    <li>detailed explanation how the service works and what you have to do</li>
+                    <li>it's recommended to read this blog-entry before you start using this service</li>
+                </ul>
+                <li>first of all you need to have delegated harvesting <b>activated</b></li>
+                <ul class="browser-default">
+                    <li><a href="https://blog.nem.io/how-to-activate-start-delegated-harvesting-in-nanowallet/" target="_blank" rel="noopener noreferrer"><b>tutorial</b></a> (how to activate & start delegated harvesting in NanoWallet)</li>
+                    <li><a href="https://www.youtube.com/watch?v=_m7rvXiEFpo" target="_blank" rel="noopener noreferrer"><b>video-tutorial</b></a> (also explains how to use this service)</li>
+                </ul>
+                <li>when this is done we need 2 types of information from you</li>
+                <ul class="browser-default">
+                    <li>your e-mail address</li>
+                    <li>private key of your <b>delegated account</b></li>
+                    <ul class="browser-default">
+                        <li><b>Note:</b> the funds in your regular account cannot be accessed by providing the private key of your delegated account</li>
+                    </ul>
+                </ul>
+            </ul>
+            <br/>
+        </div>
+        <div class="col">
+            <div class="row">
+                <h2>Register now</h2>
+            </div>
+            <form class="formContainer" [formGroup]="harvestingForm">
+                <mat-form-field>
+                    <input matInput placeholder="E-Mail" formControlName="email" required>
+                    <mat-error *ngIf="harvestingForm.controls.email.hasError('email') && !harvestingForm.controls.email.hasError('required')">
+                        Please enter a valid E-Mail address
+                    </mat-error>
+                    <mat-error *ngIf="harvestingForm.controls.email.hasError('required')">
+                        E-Mail is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Private key (delegated account)" formControlName="privateKeyDelegated" required>
+                    <mat-hint>Note: never give out the private key of the account that holds your funds</mat-hint>
+                    <mat-error *ngIf="harvestingForm.controls.privateKeyDelegated.hasError('privateKey') && !harvestingForm.controls.privateKeyDelegated.hasError('required')">
+                        Please enter a valid private key
+                    </mat-error>
+                    <mat-error *ngIf="harvestingForm.controls.privateKeyDelegated.hasError('required')">
+                        Private key (delegated account) is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br />
+                <re-captcha (resolved)="resolved($event)" siteKey="6LdLNiwUAAAAAAQKoN6B7Zp6IDueryC7A4OLhYy9"></re-captcha>
+                <input formControlName="captcha" hidden="true" />
+                <br />
+                <button mat-button (click)="submitForm()" [disabled]="!harvestingForm.valid" style="background: grey;">Click for registration</button>
+            </form>
+        </div>
+    </div>
+</div>

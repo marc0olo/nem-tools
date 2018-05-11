@@ -1,0 +1,13 @@
+<section class="mat-typography">
+  <mat-divider></mat-divider>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+        *ngFor="let tabLink of tabLinks; let i = index"
+        [routerLink]="tabLink.link"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+      {{tabLink.label}}
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</section>

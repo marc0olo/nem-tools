@@ -1,0 +1,18 @@
+<div style="text-align: center;">
+  <h3 mat-dialog-title>Target balance of <strong>{{data.targetBalance}} XEM</strong> will be reached in</h3>
+  <p style="font-size: 500%;">{{data.daysToReachTarget}} Days</p>
+</div>
+<br />
+<br />
+<div style="display: block;">
+    <canvas baseChart width="600px" height="500px"
+                [datasets]="data.lineChartData"
+                [labels]="data.lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+    </canvas>
+</div>

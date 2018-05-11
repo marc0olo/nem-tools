@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12"><h1>Settings</h1></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12 icon-form-field">
+      <mat-icon color="accent">account_balance_wallet</mat-icon>
+      <mat-form-field>
+        <input matInput placeholder="NEM-Address"
+        [ngModel]="settings?.nemAddress" (change)="onNemAddressSelect($event.target)">
+      </mat-form-field>
+    </div>
+  </div>
+</div>

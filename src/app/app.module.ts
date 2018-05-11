@@ -1,84 +1,78 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterializeModule} from "angular2-materialize";
-import {RouterModule, Routes} from '@angular/router';
-import {
-  AccountHttp,
-  AccountListener,
-  BlockchainListener,
-  BlockHttp,
-  ChainHttp,
-  ConfirmedTransactionListener,
-  MosaicHttp,
-  NamespaceHttp,
-  NEMLibrary,
-  NetworkTypes,
-  NodeHttp,
-  TransactionHttp,
-  UnconfirmedTransactionListener
-} from "nem-library";
-import {Angulartics2Module} from 'angulartics2';
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
-import {RecaptchaModule} from 'ng-recaptcha';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 
-import {BlockchainListenerProvider} from "./providers/BlockchainListenerProvider";
-import {UnconfirmedTransactionListenerProvider} from "./providers/UnconfirmedTransactionListenerProvider";
-import {AccountHttpProvider} from "./providers/AccountHttpProvider";
+import { SharedModule } from '@app/shared';
+import { CoreModule } from '@app/core';
 
+import { StaticModule } from './static';
 
-import {AppComponent} from './app.component';
-import {AccountListenerProvider} from "./providers/AccountListenerProvider";
-import {BlockHttpProvider} from "./providers/BlockHttpProvider";
-import {ChainHttpProvider} from "./providers/ChainHttpProvider";
-import {ConfirmedTransactionListenerProvider} from "./providers/ConfirmedTransactionListenerProvider";
-import {MosaicHttpProvider} from "./providers/MosaicHttpProvider";
-import {NamespaceHttpProvider} from "./providers/NamespaceHttpProvider";
-import {NodeHttpProvider} from "./providers/NodeHttpProvider";
-import {TransactionHttpProvider} from "./providers/TransactionHttpProvider";
-import {TransactionsComponent} from './transactions/transactions.component';
-import {AppRoutingModule} from './app-routing.module';
-import {SupernodesComponent} from './supernodes/supernodes.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {HarvestingComponent} from './harvesting/harvesting.component';
-import { HarvestingService } from './services/harvesting.service';
-
-NEMLibrary.bootstrap(NetworkTypes.MAIN_NET);
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SettingsModule } from '@app/settings';
+import { AccountComponent, NemAddressDialogComponent, Safe } from '@app/nem-components/account/account.component';
+import { ChangellyComponent } from '@app/nem-components/changelly/changelly.component';
+import { SupernodesComponent } from '@app/nem-components/supernodes/supernodes.component';
+import { TransactionsComponent } from '@app/nem-components/transactions/transactions.component';
+import { HarvestingComponent } from '@app/nem-components/harvesting/harvesting.component';
+import { AutomatedRestartComponent } from '@app/nem-components/harvesting/automated-restart/automated-restart.component';
+import { CalculatorComponent } from '@app/nem-components/harvesting/calculator/calculator.component';
+import { GuestbookComponent } from '@app/nem-components/guestbook/guestbook.component';
+import { TransactionDetailDialogComponent } from '@app/nem-components/dialogs/transaction-detail-dialog/transaction-detail-dialog.component';
+import { VestedBalanceDialogComponent } from '@app/nem-components/dialogs/vested-balance-dialog/vested-balance-dialog.component';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ClipboardModule } from 'ngx-clipboard';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    // angular
     BrowserAnimationsModule,
-    HttpClientModule,
+    BrowserModule,
+
+    // core & shared
+    CoreModule,
+    SharedModule,
+
+    // features
+    StaticModule,
+    SettingsModule,
+
+    // re-captcha
+    RecaptchaModule.forRoot(),
+
+    // forms
     ReactiveFormsModule,
-    MaterializeModule,
-    AppRoutingModule,
-    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
-    RecaptchaModule.forRoot()
+
+    ClipboardModule,
+    ChartsModule,
+
+    // app
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
+    AccountComponent,
+    ChangellyComponent,
     TransactionsComponent,
     SupernodesComponent,
-    HarvestingComponent
+    HarvestingComponent,
+    AutomatedRestartComponent,
+    CalculatorComponent,
+    GuestbookComponent,
+
+    TransactionDetailDialogComponent,
+    VestedBalanceDialogComponent,
+    NemAddressDialogComponent,
+
+    Safe
   ],
-  providers: [
-    HarvestingService,
-    {provide: AccountHttp, useFactory: AccountHttpProvider},
-    {provide: AccountListener, useFactory: AccountListenerProvider},
-    {provide: BlockchainListener, useFactory: BlockchainListenerProvider},
-    {provide: BlockHttp, useFactory: BlockHttpProvider},
-    {provide: ChainHttp, useFactory: ChainHttpProvider},
-    {provide: ConfirmedTransactionListener, useFactory: ConfirmedTransactionListenerProvider},
-    {provide: MosaicHttp, useFactory: MosaicHttpProvider},
-    {provide: NamespaceHttp, useFactory: NamespaceHttpProvider},
-    {provide: NodeHttp, useFactory: NodeHttpProvider},
-    {provide: TransactionHttp, useFactory: TransactionHttpProvider},
-    {provide: UnconfirmedTransactionListener, useFactory: UnconfirmedTransactionListenerProvider},
+  entryComponents: [
+    TransactionDetailDialogComponent,
+    VestedBalanceDialogComponent,
+    NemAddressDialogComponent
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

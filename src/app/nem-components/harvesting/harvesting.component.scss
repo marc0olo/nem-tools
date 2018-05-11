@@ -1,0 +1,17 @@
+.mat-tab-nav-bar {
+    text-align: center;
+    // justify-content: center; /* align items in Main Axis */
+}
+
+.nemToolbar {
+    font-size: 14px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+  
+.formContainer > * {
+    width: 100%;
+}

@@ -1,0 +1,114 @@
+<section class="mat-typography">
+  <mat-divider></mat-divider>
+  <mat-toolbar class="nemToolbar">
+    <mat-icon style="margin-right: 10px;">account_balance_wallet</mat-icon>
+    {{ _nemService.isAddressConfigured() ? _nemService.getNemAddress() : 'not available -> go to the settings'}}
+    <div style="margin-left: 150px;">
+      <button mat-button (click)="loadLastTransactions()" [disabled]="!_nemService.isAddressConfigured() || loading">
+        <mat-icon style="margin-right: 10px;">sync</mat-icon>
+        Recent transactions
+      </button>
+      <button mat-button (click)="loadAllTransactions()" [disabled]="!_nemService.isAddressConfigured() || loading">
+        <mat-icon style="margin-right: 10px;">sync</mat-icon>
+        All transactions
+      </button>
+      <button mat-button (click)="exportTransactionHistory()" [disabled]="!transactionsArray.length">
+        <mat-icon style="margin-right: 10px;">save_alt</mat-icon>
+        Export Transaction History
+      </button>
+      <button mat-button (click)="exportHarvestingHistory()" [disabled]="!harvestingTransactionsArray.length">
+        <mat-icon style="margin-right: 10px;">save_alt</mat-icon>
+        Export Harvesting History
+      </button>
+      <button mat-button (click)="resetTransactions()" [disabled]="!transactionsArray.length">
+        <mat-icon style="margin-right: 10px;">clear</mat-icon>
+        Reset
+      </button>
+    </div>
+  </mat-toolbar>
+  <mat-divider></mat-divider>
+  <mat-tab-group #tabGroup (selectedIndexChange)="_setDataSource($event)">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <mat-tab label="Transactions">
+        <mat-table #transactionTable [dataSource]="transactionTableOutput" class="transactionsTable">
+          <ng-container matColumnDef="hash">
+            <mat-header-cell *matHeaderCellDef>Hash</mat-header-cell>
+            <mat-cell *matCellDef="let row" matTooltip="{{row.hash}}">{{ getShortenedString(row.hash) }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="block">
+            <mat-header-cell *matHeaderCellDef>Block</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.block }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+            <mat-cell *matCellDef="let row" matTooltip="{{row.date}}">{{ _nemService.prettyPrintTimestamp(row.date) }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="from">
+            <mat-header-cell *matHeaderCellDef>From</mat-header-cell>
+            <mat-cell *matCellDef="let row" matTooltip="{{row.sender}}">{{ getShortenedString(row.sender) }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="in_out">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row" [class.transfer-in]="isRecipient(row)" [class.transfer-out]="!isRecipient(row)">{{ getInOutText(row) }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="to">
+            <mat-header-cell *matHeaderCellDef>To</mat-header-cell>
+            <mat-cell *matCellDef="let row" matTooltip="{{row.recipient}}">{{ getShortenedString(row.recipient) }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="amount">
+            <mat-header-cell *matHeaderCellDef>Mosaic (Amount)</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ _nemService.formatXemAndOtherMosaics(row.xem, row.mosaics) }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="fee">
+            <mat-header-cell *matHeaderCellDef>Fee</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ "nem:xem (" + row.fee + ")" }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="message">
+            <mat-header-cell *matHeaderCellDef>Message</mat-header-cell>
+            <mat-cell *matCellDef="let row" matTooltip="{{row.message}}">{{ getShortenedString(row.message) }}</mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedTransactionColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedTransactionColumns;" (click)="showDetail(row)"></mat-row>
+        </mat-table>
+        <mat-paginator #transactionPaginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+        </mat-paginator>
+    </mat-tab>
+    <mat-tab label="Harvesting Transactions">
+      <mat-table #harvestingTable [dataSource]="harvestingTableOutput" class="harvestingTable">
+        <ng-container matColumnDef="block">
+          <mat-header-cell *matHeaderCellDef>Block</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.block }}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+          <mat-cell *matCellDef="let row" matTooltip="{{row.date}}">{{ _nemService.prettyPrintTimestamp(row.date) }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.amount }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="recipient">
+          <mat-header-cell *matHeaderCellDef>Recipient</mat-header-cell>
+          <mat-cell *matCellDef="let row" matTooltip="{{row.recipient}}">{{ row.recipient }}</mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedHarvestingColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedHarvestingColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator #harvestingPaginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+      </mat-paginator>
+    </mat-tab>
+  </mat-tab-group>
+</section>
