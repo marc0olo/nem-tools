@@ -37,8 +37,8 @@ import { HarvestingOutput } from '@app/classes/HarvestingOutput';
 })
 export class TransactionsComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
-  private transactionsArray: TransactionOutput[] = [];
-  private harvestingTransactionsArray: HarvestingOutput[] = [];
+  transactionsArray: TransactionOutput[] = [];
+  harvestingTransactionsArray: HarvestingOutput[] = [];
   displayedTransactionColumns = ['hash', 'block', 'date', 'from', 'in_out', 'to', 'amount', 'fee', 'message'];
   displayedHarvestingColumns = ['block', 'date', 'amount', 'recipient'];
   transactionTableOutput = new MatTableDataSource<TransactionOutput>();
@@ -50,7 +50,7 @@ export class TransactionsComponent implements OnInit, AfterViewInit, AfterViewCh
   @ViewChild('transactionPaginator') transactionPaginator: MatPaginator;
   @ViewChild('harvestingPaginator') harvestingPaginator: MatPaginator;
 
-  constructor(public dialog: MatDialog, private _nemService: NemService, private cdr:ChangeDetectorRef) { }
+  constructor(public dialog: MatDialog, public _nemService: NemService, private cdr:ChangeDetectorRef) { }
 
   ngOnInit() {
     console.log(this._nemService.getNemAddress());

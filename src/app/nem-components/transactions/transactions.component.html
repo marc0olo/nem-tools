@@ -79,7 +79,7 @@
           <mat-header-row *matHeaderRowDef="displayedTransactionColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedTransactionColumns;" (click)="showDetail(row)"></mat-row>
         </mat-table>
-        <mat-paginator #transactionPaginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+        <mat-paginator #transactionPaginator [length]="transactionsArray.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
         </mat-paginator>
     </mat-tab>
     <mat-tab label="Harvesting Transactions">
@@ -107,7 +107,7 @@
         <mat-header-row *matHeaderRowDef="displayedHarvestingColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedHarvestingColumns;"></mat-row>
       </mat-table>
-      <mat-paginator #harvestingPaginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+      <mat-paginator #harvestingPaginator [length]="harvestingTransactionsArray.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
       </mat-paginator>
     </mat-tab>
   </mat-tab-group>

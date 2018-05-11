@@ -35,10 +35,10 @@ export class AccountComponent implements OnInit {
   private accountInfo: AccountInfoWithMetaData;
   loading: boolean = false;
 
-  constructor(public dialog: MatDialog, private _nemService: NemService) { }
+  constructor(public dialog: MatDialog, public _nemService: NemService) { }
 
   ngOnInit() {
-    console.log(this._nemService.getNemAddress());
+    // console.log(this._nemService.getNemAddress());
     if (this._nemService.getNemAddress() === null || this._nemService.getNemAddress() === '') {
       this.openDialog();
     } else {
@@ -58,8 +58,8 @@ export class AccountComponent implements OnInit {
     }, err => {
         console.log(err);
     }, () => {
-        console.log("account info loaded");
-        console.log(this.accountInfo);
+        // console.log("account info loaded");
+        // console.log(this.accountInfo);
         this.loading = false;
     });
   }

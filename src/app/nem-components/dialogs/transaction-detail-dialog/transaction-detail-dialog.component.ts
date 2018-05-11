@@ -10,7 +10,7 @@ import { NemService } from '@app/services/nem.service';
 export class TransactionDetailDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<TransactionDetailDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private _nemService: NemService) {
+    @Inject(MAT_DIALOG_DATA) public data: any, public _nemService: NemService) {
   }
 
   ngOnInit() {

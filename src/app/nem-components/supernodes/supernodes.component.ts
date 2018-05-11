@@ -10,7 +10,7 @@ import { snackBarMsg } from '@app/constants';
 })
 export class SupernodesComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
-  private supernodesArray: Supernode[];
+  supernodesArray: Supernode[] = [];
   displayedColumns = ['host', 'alias', 'active', 'slotsAvailable', 'slotsUsed', 'freeSlots', 'syncDate'];
   supernodeTableOutput;
   loading: boolean = false;
