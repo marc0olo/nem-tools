@@ -19,7 +19,7 @@ import {
 } from 'nem-library';
 import nem from 'nem-sdk';
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
-import { accountHttp, joda, csvOptions, formatValue } from '@app/constants';
+import { accountHttp, joda, csvOptions, formatValue, csvOptionsHarvesting } from '@app/constants';
 import { TransactionOutput } from '@app/classes/TransactionOutput';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -157,6 +157,6 @@ export class TransactionsComponent implements OnInit, AfterViewInit, AfterViewCh
   }
 
   exportHarvestingHistory() {
-    new Angular2Csv(JSON.parse(JSON.stringify(this.harvestingTransactionsArray)), 'harvesting-history', csvOptions);
+    new Angular2Csv(JSON.parse(JSON.stringify(this.harvestingTransactionsArray)), 'harvesting-history', csvOptionsHarvesting);
   }
 }

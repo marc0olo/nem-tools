@@ -5,8 +5,8 @@ export class TransactionOutput {
     fee: string;
     xem: string;
     mosaics: string;
-    recipient: string;
     sender: string;
+    recipient: string;
     message: string;
     date: string;
     timestamp: string;
@@ -19,8 +19,8 @@ export class TransactionOutput {
         this.fee = '';
         this.xem = '';
         this.mosaics = '';
-        this.recipient = '';
         this.sender = '';
+        this.recipient = '';
         this.message = '';
         this.date = '';
         this.timestamp = '';

@@ -33,7 +33,7 @@ export const csvOptions = {
   showTitle: false,
   useBom: true,
   noDownload: false,
-  headers: ["tx-type", "block","importance-mode", "xem-fee", "xem-amount", "mosaic (amount)", "sender", "recipient", "message", "date", "timestamp", "hash"]
+  headers: ["tx-type", "block","importance-mode", "xem-fee", "xem-amount", "amount (mosaic)", "sender", "recipient", "message", "date", "timestamp", "hash"]
 };
 
 export const csvOptionsHarvesting = { 

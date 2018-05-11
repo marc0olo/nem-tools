@@ -68,7 +68,7 @@
       
           <ng-container matColumnDef="fee">
             <mat-header-cell *matHeaderCellDef>Fee</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{ "nem:xem (" + row.fee + ")" }}</mat-cell>
+            <mat-cell *matCellDef="let row">{{ row.fee + " (nem:xem)" }}</mat-cell>
           </ng-container>
       
           <ng-container matColumnDef="message">
