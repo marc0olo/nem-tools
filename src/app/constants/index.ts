@@ -52,7 +52,7 @@ export const isNumber = (o) => {
 }
 
 export const formatValue = (value: any) => {
-  return value !== undefined && this.isNumber(value) ? (value / 1000000).toString() : '';
+  return value !== undefined && isNumber(value) ? (value / 1000000).toString() : '';
 }
 
 export const snackBarMsg = (instance: MatSnackBar, msg: string, action: string) => {

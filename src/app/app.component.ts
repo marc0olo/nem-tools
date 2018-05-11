@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
     { link: 'harvesting', label: 'Harvesting' },
     { link: 'supernodes', label: 'Supernodes' },
     { link: 'buy-xem', label: 'Buy XEM' },
-    { link: 'guestbook', label: 'Guestbook' }
+    // { link: 'guestbook', label: 'Guestbook' }
   ];
   navigationSideMenu = [
     ...this.navigation,
