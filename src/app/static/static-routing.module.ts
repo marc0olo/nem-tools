@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'harvesting', component: HarvestingComponent, children: HARVESTING_ROUTES, data: { title: 'Harvesting' } },
   { path: 'supernodes', component: SupernodesComponent, data: { title: 'Supernodes' } },
   { path: 'buy-xem', component: ChangellyComponent, data: { title: 'Buy XEM' } },
-  { path: 'guestbook', component: GuestbookComponent, data: { title: 'Guestbook' } }
+  { path: 'guestbook', component: GuestbookComponent, data: { title: 'Guestbook' } },
+  { path: 'calculator', redirectTo: 'harvesting/calculator', pathMatch: 'full'}
 ];
 
 @NgModule({
