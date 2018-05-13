@@ -229,10 +229,10 @@ export class NemService {
     private transformTransaction(transaction: Transaction) {
         // console.log(transaction);
         let transformedTx = new TransactionOutput();
-        transformedTx.type = transaction.constructor.name;
         transformedTx.block = transaction.getTransactionInfo().height.toString();
         transformedTx.sender = transaction.signer.address.pretty();
         if ( transaction instanceof TransferTransaction ) {
+            transformedTx.type = "TransferTransaction";
             try {
             transformedTx.xem = transaction.xem().amount.toString();
             } catch (err) {
@@ -251,7 +251,7 @@ export class NemService {
             }
         }
         if ( transaction instanceof ImportanceTransferTransaction ) {
-            console.log(transaction);
+            transformedTx.type = "ImportanceTransferTransaction";
             transformedTx.recipient = transaction.remoteAccount.address.pretty();
             transformedTx.mode = this.getStringForImportanceMode(transaction.mode);
         }

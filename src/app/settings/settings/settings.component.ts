@@ -16,6 +16,7 @@ import {
 import { accountHttp } from '@app/constants';
 import { NEMAddress } from '@app/classes/NEMAddress';
 import { Address, AccountInfoWithMetaData } from 'nem-library';
+import { NemService } from '@app/services/nem.service';
 
 @Component({
   selector: 'anms-settings',
@@ -32,7 +33,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
     { value: 'BLACK-THEME', label: 'Dark' }
   ];
 
-  constructor(public snackBar: MatSnackBar, private store: Store<any>) {
+  constructor(public snackBar: MatSnackBar, private store: Store<any>, private _nemService: NemService) {
     store
       .select(selectorSettings)
       .pipe(takeUntil(this.unsubscribe$))
@@ -58,6 +59,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
     } else {
       this.openSnackBar("Invalid NEM-Address, please check and try again.", "");
     }
+    this._nemService.resetTransactions();
   }
 
   openSnackBar(message: string, action: string) {
