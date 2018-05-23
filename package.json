@@ -54,7 +54,7 @@
     "angular2-csv": "^0.2.5",
     "bootstrap": "^4.0.0",
     "core-js": "^2.5.3",
-    "nem-library": "^1.0.2",
+    "nem-library": "^1.0.4",
     "nem-sdk": "^1.6.4",
     "ng-recaptcha": "3.0.3",
     "ng2-charts": "^1.6.0",
