@@ -43,7 +43,7 @@ export class AutomatedRestartComponent implements OnInit {
               .subscribe(
                 data => console.debug(data),
                 err => this.openSnackBar(err.error, ""),
-                () => this.openSnackBar("success - you will soon receive a confirmation mail", "")
+                () => this.openSnackBar("success - you will soon receive a confirmation mail - make sure to check your spam folder! ;-)", "")
               );
   }
   
