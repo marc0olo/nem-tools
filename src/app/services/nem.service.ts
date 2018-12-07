@@ -217,8 +217,6 @@ export class NemService {
         //return new Date(timestamp).toString();
     }
 
-    get
-
     private formatUnitString(unit, singleString) {
         if(unit > 1) {
             return unit + singleString + "(s) ";
